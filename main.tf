@@ -448,8 +448,7 @@ resource "aws_codepipeline_webhook" "webhook" {
 }
 
 module "github_webhooks" {
-  source  = "sonatype/terraform-github-repository-webhooks"
-  version = "0.12.2"
+  source  = "git::https://github.com/sonatype/terraform-github-repository-webhooks.git?ref=tags/0.12.2"
 
   enabled              = module.this.enabled && var.webhook_enabled ? true : false
   github_organization  = var.repo_owner
